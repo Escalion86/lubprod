@@ -1,0 +1,15 @@
+{
+  "autorun": false,
+  "terminals": [
+    {
+      "name": "Start",
+      "focus": true,
+      "command": "npm run-script start"
+    },
+    {
+      "name": "Build",
+      "focus": true,
+      "command": "npm run-script build"
+    }
+  ]
+}

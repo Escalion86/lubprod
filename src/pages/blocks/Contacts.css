@@ -1,0 +1,36 @@
+.offices_title, .filials_title, .production_title, .shop_title {
+  margin-top: 18px;
+}
+
+.offices_item, .filials_item, .production_item {
+  display: flex;
+}
+
+.offices_item:not(:first-child), .filials_item:not(:first-child), .production_item:not(:first-child) {
+  margin-top: 24px;
+}
+
+.offices_item_name, .filials_item_name, .production_item_name {
+  flex: 1;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  color: #E5E5E5;
+}
+
+.offices_item_phone, .offices_item_email, .filials_item_phone, .production_item_phone, .production_item_email {
+  cursor: pointer;
+}
+
+.offices_item_phone, .offices_item_email, .filials_item_phone, .filials_item_workTime, .production_item_phone, .production_item_email {
+  text-align: right;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: right;
+  color: #000000;
+}
