@@ -1,13 +1,5 @@
-.offices_title, .filials_title, .production_title, .shop_title {
-  margin-top: 18px;
-}
-
 .offices_item, .filials_item, .production_item {
   display: flex;
-}
-
-.offices_item:not(:first-child), .filials_item:not(:first-child), .production_item:not(:first-child) {
-  margin-top: 24px;
 }
 
 .offices_item_name, .filials_item_name, .production_item_name {
@@ -15,7 +7,6 @@
   font-family: Roboto;
   font-style: normal;
   font-weight: 300;
-  font-size: 18px;
   line-height: 21px;
   color: #E5E5E5;
 }
@@ -29,8 +20,6 @@
   font-family: Roboto;
   font-style: normal;
   font-weight: 300;
-  font-size: 18px;
   line-height: 21px;
-  text-align: right;
   color: #000000;
 }

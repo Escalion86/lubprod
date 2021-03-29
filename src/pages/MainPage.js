@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, Element } from 'react-scroll'
 
 import useWindowDimensions from '../helpers/useWindowDimensions'
@@ -32,10 +32,67 @@ import Footer from './blocks/Footer'
 // };
 
 const MainPage = () => {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen)
+  }
+  const closeMenu = () => {
+    setMenuOpen(false)
+  }
+
   // const [menuOpen, setMenuOpen] = useState(false)
 
   const { width } = useWindowDimensions()
-  const deviceSize = width >= 1024 ? 3 : width >= 640 ? 2 : 1
+  const deviceSize =
+    width >= 1370
+      ? 5
+      : width > 1225
+      ? 4
+      : width > 1050
+      ? 3
+      : width > 900
+      ? 2
+      : width > 420
+      ? 1
+      : 0
+  const paddingHorizontal =
+    deviceSize === 5
+      ? 135
+      : deviceSize === 4
+      ? 120
+      : deviceSize === 3
+      ? 100
+      : deviceSize === 2
+      ? 60
+      : deviceSize === 1
+      ? 45
+      : 15
+  const fontSizeCorrection =
+    deviceSize === 5
+      ? 0
+      : deviceSize === 4
+      ? -4
+      : deviceSize === 3
+      ? -8
+      : deviceSize === 2
+      ? -10
+      : deviceSize === 1
+      ? -12
+      : -14
+  const imgSizeCorrection =
+    deviceSize === 5
+      ? 1
+      : deviceSize === 4
+      ? 0.9
+      : deviceSize === 3
+      ? 0.8
+      : deviceSize === 2
+      ? 0.7
+      : deviceSize === 1
+      ? 0.6
+      : 0.5
+
+  console.log(`deviceSize`, deviceSize)
 
   return (
     <div className={'h-screen w-screen'}>
@@ -46,14 +103,42 @@ const MainPage = () => {
         deviceSize={deviceSize}
       /> */}
       <Element name="general" />
-      <Title deviceSize={deviceSize} />
+      <Title
+        deviceSize={deviceSize}
+        menuOpen={menuOpen}
+        onClick={() => toggleMenu()}
+        closeMenu={() => closeMenu()}
+        paddingHorizontal={paddingHorizontal}
+        fontSizeCorrection={fontSizeCorrection}
+        imgSizeCorrection={imgSizeCorrection}
+      />
       <Element name="about" />
-      <About deviceSize={deviceSize} />
+      <About
+        deviceSize={deviceSize}
+        paddingHorizontal={paddingHorizontal}
+        fontSizeCorrection={fontSizeCorrection}
+        imgSizeCorrection={imgSizeCorrection}
+      />
       <Element name="products" />
-      <Products deviceSize={deviceSize} />
+      <Products
+        deviceSize={deviceSize}
+        paddingHorizontal={paddingHorizontal}
+        fontSizeCorrection={fontSizeCorrection}
+        imgSizeCorrection={imgSizeCorrection}
+      />
       <Element name="contacts" />
-      <Contacts deviceSize={deviceSize} />
-      <Footer deviceSize={deviceSize} />
+      <Contacts
+        deviceSize={deviceSize}
+        paddingHorizontal={paddingHorizontal}
+        fontSizeCorrection={fontSizeCorrection}
+        imgSizeCorrection={imgSizeCorrection}
+      />
+      <Footer
+        deviceSize={deviceSize}
+        paddingHorizontal={paddingHorizontal}
+        fontSizeCorrection={fontSizeCorrection}
+        imgSizeCorrection={imgSizeCorrection}
+      />
       {/* <YoutubePromo screenWidth={width} />
       <WhatDoesItMeanToBeAWizard deviceSize={deviceSize} />
       <Illusionists deviceSize={deviceSize} />

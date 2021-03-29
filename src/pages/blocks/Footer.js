@@ -7,7 +7,7 @@ import footer_bg from '../../img/footer_bg.png'
 import vk_black_logo from '../../img/vk_black_logo.png'
 import instagram_black_logo from '../../img/instagram_black_logo.png'
 
-const Footer = ({ deviceSize }) => {
+const Footer = ({ deviceSize = 5 }) => {
   // const fontSize = adaptiveFontSize(deviceSize)
   return (
     <div className="w-full overflow-hidden">

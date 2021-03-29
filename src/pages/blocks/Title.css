@@ -1,3 +1,96 @@
+.menu-btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 15px;
+  cursor: pointer;
+  transition: all .5s ease-in-out;
+  /* border: 3px solid #fff; */
+}
+
+.menu-btn__burger {
+  width: 20px;
+  height: 2px;
+  background: #fff;
+  border-radius: 5px;
+  /* box-shadow: 0 2px 5px #fff; */
+  transition: all .5s ease-in-out;
+}
+
+.menu-btn__burger::before, .menu-btn__burger::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background: #fff;
+  border-radius: 5px;
+  /* box-shadow: 0 2px 5px #fff; */
+  transition: all .5s ease-in-out;
+}
+
+.menu-btn__burger::before {
+  transform: translateY(-5px);
+}
+
+.menu-btn__burger::after {
+  transform: translateY(5px);
+}
+
+/* ANIMATION */
+
+.menu-btn.open .menu-btn__burger {
+  transform: translateX(-50px);
+  background: transparent;
+  box-shadow: none;
+}
+
+.menu-btn.open .menu-btn__burger:before {
+  transform: rotate(45deg) translate(35px, -35px)
+}
+
+.menu-btn.open .menu-btn__burger:after {
+  transform: rotate(-45deg) translate(35px, 35px)
+}
+
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */
+  height: 0;
+  width: 100%;
+  position: fixed;
+  /* Stay in place */
+  /* z-index: 1; */
+  /* Sit on top */
+  left: 0;
+  /* top: 120; */
+  background-color: #00197E;
+  /* Black fallback color */
+  /* background-color: rgba(255, 255, 255, 0.90); */
+  /* Black w/opacity */
+  overflow: hidden;
+  /* Disable horizontal scroll */
+  transition: 0.5s;
+  /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+.overlay.open {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */
+  height: 100%;
+}
+
+.overlay-content {
+  /* position: relative; */
+  /* top: 25%; */
+  /* 25% from the top */
+  width: 100%;
+  /* 100% width */
+  text-align: left;
+  /* Centered text/links */
+  /* margin-top: 30px; */
+  /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
 .menu {
   display: flex;
   flex-direction: row;
@@ -9,45 +102,42 @@
   margin-right: 38px;
   cursor: pointer;
   color: #fff;
-  font-size: 24px;
 }
 
 .menu .menu_item:hover {
   text-decoration: underline
 }
 
+.mobile_menu_header {
+  /* margin-top: 25px; */
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  color: #FFFFFF;
+  padding-left: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.48);
+  line-height: 76px;
+}
+
+.menu_item_mobile {
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  /* height: 50px; */
+  font-weight: 400;
+  margin-right: 38px;
+  cursor: pointer;
+  color: #fff;
+  /* padding-top: 12px; */
+  line-height: 50px;
+}
+
+.menu_item_mobile:hover {
+  background-color: rgba(255, 237, 0, 0.88);
+}
+
 .phone {
   font-weight: 400;
-  font-size: 24px;
   color: #fff;
   cursor: pointer;
-}
-
-.about {
-  padding-top: 10px;
-}
-
-.about .about_item {
-  font-weight: 500;
-  font-size: 24px;
-  color: #000;
-  display: flex;
-}
-
-.about .about_item:not(:first-child) {
-  margin-top: 20px;
-}
-
-.mission {
-  position: relative;
-  padding-top: 14px;
-  width: 500px;
-  font-family: Old Standard TT;
-  font-size: 50px;
-  font-style: italic;
-  font-weight: 400;
-  line-height: 66px;
-  letter-spacing: 0em;
-  text-align: center;
-  color: #B50A03;
 }
