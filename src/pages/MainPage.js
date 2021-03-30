@@ -77,8 +77,8 @@ const MainPage = () => {
       : deviceSize === 2
       ? -10
       : deviceSize === 1
-      ? -12
-      : -14
+      ? 0
+      : -4
   const imgSizeCorrection =
     deviceSize === 5
       ? 1
@@ -89,8 +89,8 @@ const MainPage = () => {
       : deviceSize === 2
       ? 0.7
       : deviceSize === 1
-      ? 0.6
-      : 0.5
+      ? 1
+      : 0.9
 
   console.log(`deviceSize`, deviceSize)
 

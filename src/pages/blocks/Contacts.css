@@ -1,3 +1,18 @@
+.offices, .filials, .production {
+  transition: max-height .5s ease-in-out;
+  /* transform: ScaleY(0); */
+  max-height: 0px;
+  overflow: hidden;
+  height: auto;
+}
+
+.offices.open, .filials.open, .production.open {
+  transition: max-height .5s ease-in-out;
+  /* transform: ScaleY(1); */
+  /* height: auto; */
+  max-height: 500px;
+}
+
 .offices_item, .filials_item, .production_item {
   display: flex;
 }
@@ -23,3 +38,53 @@
   line-height: 21px;
   color: #000000;
 }
+
+.list-btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: all .5s ease-in-out;
+  /* border: 3px solid #fff; */
+}
+
+.list-btn__arrow {
+  width: 10px;
+  height: 2px;
+  background: #000;
+  border-radius: 5px;
+  /* box-shadow: 0 2px 5px #fff; */
+  transition: all .5s ease-in-out;
+  transform: rotate(45deg);
+  margin-left: -10px;
+}
+
+.list-btn__arrow::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  background: #000;
+  border-radius: 5px;
+  /* box-shadow: 0 2px 5px #fff; */
+  transition: all .5s ease-in-out;
+}
+
+.list-btn__arrow::after {
+  transform: translateY(-4px) translateX(4px) rotate(-90deg)
+}
+
+/* ANIMATION */
+
+.list-btn.open .list-btn__arrow {
+  transform: rotate(-45deg);
+}
+
+.list-btn.open .list-btn__arrow:after {
+  transform: translateY(4px) translateX(4px) rotate(90deg)
+}
+
+.dot {}

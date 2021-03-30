@@ -28,7 +28,7 @@ const HeadPanel = ({
   menuOpen = false,
   onClick = () => {},
   closeMenu = () => {},
-  deviceSize = 3,
+  deviceSize = 5,
   fontSizeCorrection = 0,
   imgSizeCorrection = 1,
 }) => {
@@ -219,7 +219,7 @@ const Title = ({
                 <div
                   style={{
                     fontWeight: 900,
-                    fontSize: 14,
+                    fontSize: 18 + fontSizeCorrection,
                     color: '#FFED00',
                   }}
                 >
@@ -228,7 +228,7 @@ const Title = ({
                 <div
                   style={{
                     fontWeight: 900,
-                    fontSize: 11,
+                    fontSize: 15 + fontSizeCorrection,
                     color: '#fff',
                   }}
                 >
@@ -242,7 +242,7 @@ const Title = ({
                   width: '100%',
                   textAlign: 'center',
                   // height: 132,
-                  fontSize: 24,
+                  fontSize: 28 + fontSizeCorrection,
                   fontStyle: 'normal',
                   fontWeight: 'bold',
                   lineHeight: 28 / 24,
@@ -257,13 +257,13 @@ const Title = ({
             <div className="flex flex-col w-full items-center">
               <Button
                 href="docs/Catalog_2021.pdf"
-                style={{ width: 170, height: 51 }}
+                style={{ width: 202 * imgSizeCorrection, height: 51 }}
                 imgSrc={arrow}
                 imgAlt="arrow"
-                imgH={20}
-                imgW={22}
+                imgH={20 * imgSizeCorrection}
+                imgW={22 * imgSizeCorrection}
                 fontWeight={700}
-                fontSize={16}
+                fontSize={20 + fontSizeCorrection}
                 name="скачать каталог"
               />
             </div>

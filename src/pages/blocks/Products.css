@@ -2,7 +2,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 38px;
   padding-top: 40px;
   max-width: 1200px;
 }

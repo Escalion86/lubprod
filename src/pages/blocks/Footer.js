@@ -7,40 +7,59 @@ import footer_bg from '../../img/footer_bg.png'
 import vk_black_logo from '../../img/vk_black_logo.png'
 import instagram_black_logo from '../../img/instagram_black_logo.png'
 
-const Footer = ({ deviceSize = 5 }) => {
-  // const fontSize = adaptiveFontSize(deviceSize)
+const Footer = ({
+  deviceSize = 5,
+  paddingHorizontal = 135,
+  fontSizeCorrection = 0,
+  imgSizeCorrection = 1,
+}) => {
+  if (deviceSize <= 1) {
+    imgSizeCorrection -= 0.4
+  }
+
   return (
     <div className="w-full overflow-hidden">
-      {/*                           Титул                                      */}
-
       <div
         className="w-full flex flex-col"
         style={{
-          paddingLeft: 135,
-          paddingRight: 135,
-          paddingTop: 80,
-          paddingBottom: 59,
+          paddingLeft: paddingHorizontal,
+          paddingRight: paddingHorizontal,
+          paddingTop: deviceSize >= 2 ? 80 : 16,
+          paddingBottom: deviceSize >= 2 ? 59 : 16,
           position: 'relative',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          height: 270,
+          // height: 270,
           backgroundImage: `url(${footer_bg})`,
         }}
       >
         <div className="flex flex-col items-center">
-          <div className="flex flex-row justify-between" style={{ width: 124 }}>
-            <a href="#" target="_blank">
+          <div
+            className="flex flex-row justify-between"
+            style={{ width: 124 * imgSizeCorrection }}
+          >
+            <a href="https://vk.com/lubprod" target="_blank" rel="noreferrer">
               <img
                 className="object-fill"
-                style={{ width: 43, minWidth: 43 }}
+                style={{
+                  width: 43 * imgSizeCorrection,
+                  minWidth: 43 * imgSizeCorrection,
+                }}
                 src={vk_black_logo}
                 alt="vk"
               />
             </a>
-            <a href="#" target="_blank">
+            <a
+              href="https://www.instagram.com/lubprod"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img
                 className="object-fill"
-                style={{ width: 43, minWidth: 43 }}
+                style={{
+                  width: 43 * imgSizeCorrection,
+                  minWidth: 43 * imgSizeCorrection,
+                }}
                 src={instagram_black_logo}
                 alt="instagram"
               />
@@ -49,10 +68,13 @@ const Footer = ({ deviceSize = 5 }) => {
           <div
             style={{
               textAlign: 'center',
-              fontSize: 18,
+              fontSize:
+                (deviceSize >= 2 ? 18 : 13) +
+                fontSizeCorrection +
+                (deviceSize === 2 ? 4 : 0),
               fontWeight: 'bold',
               color: '#000',
-              marginTop: 20,
+              marginTop: deviceSize >= 2 ? 20 : 11,
             }}
           >
             ИП Керимов АзадСамранОглы

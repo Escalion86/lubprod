@@ -24,8 +24,12 @@ const productsArray = [
   { name: 'Бакалея', src: groats },
 ]
 
-const ProductsItems = ({ fontSizeCorrection = 0, imgSizeCorrection = 1 }) =>
-  productsArray.map((item) => {
+const ProductsItems = ({
+  deviceSize = 5,
+  fontSizeCorrection = 0,
+  imgSizeCorrection = 1,
+}) => {
+  return productsArray.map((item) => {
     return (
       <li
         className="products_item"
@@ -64,13 +68,14 @@ const ProductsItems = ({ fontSizeCorrection = 0, imgSizeCorrection = 1 }) =>
             imgH={23 * imgSizeCorrection}
             imgW={27 * imgSizeCorrection}
             fontWeight={700}
-            fontSize={20 + fontSizeCorrection}
+            fontSize={20 + fontSizeCorrection + (deviceSize >= 2 ? 0 : -8)}
             name="скачать каталог"
           />
         </div>
       </li>
     )
   })
+}
 
 const Products = ({
   deviceSize = 5,
@@ -78,6 +83,9 @@ const Products = ({
   fontSizeCorrection = 0,
   imgSizeCorrection = 1,
 }) => {
+  if (deviceSize <= 1) {
+    imgSizeCorrection -= 0.4
+  }
   // const fontSize = adaptiveFontSize(deviceSize)
   return (
     <div className="w-full overflow-hidden">
@@ -86,8 +94,8 @@ const Products = ({
         style={{
           paddingLeft: paddingHorizontal,
           paddingRight: paddingHorizontal,
-          paddingTop: 70,
-          paddingBottom: 50,
+          paddingTop: deviceSize >= 2 ? 70 : 30,
+          paddingBottom: deviceSize >= 2 ? 50 : 30,
           position: 'relative',
           // height: 882,
           background:
@@ -98,7 +106,7 @@ const Products = ({
           style={{
             textAlign: 'center',
             width: '100%',
-            fontSize: 64 + fontSizeCorrection,
+            fontSize: (deviceSize >= 2 ? 64 : 20) + fontSizeCorrection,
             fontWeight: 500,
             color: '#000324',
             textTransform: 'uppercase',
@@ -106,8 +114,9 @@ const Products = ({
         >
           Продукция
         </h2>
-        <ul className="products">
+        <ul className="products" style={{ gap: 38 * imgSizeCorrection }}>
           <ProductsItems
+            deviceSize={deviceSize}
             fontSizeCorrection={fontSizeCorrection}
             imgSizeCorrection={imgSizeCorrection}
           />

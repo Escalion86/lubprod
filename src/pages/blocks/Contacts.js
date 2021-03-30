@@ -1,6 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import './Contacts.css'
+
+const ListArrow = ({ listOpen = false, onClick = () => {} }) => {
+  return (
+    <div className={'list-btn' + (listOpen ? ' open' : '')} onClick={onClick}>
+      <div className="list-btn__arrow" />
+    </div>
+  )
+}
+
+const Dot = () => (
+  <div
+    style={{
+      height: 6,
+      width: 6,
+      borderRadius: 5,
+      backgroundColor: '#000',
+      marginRight: 8,
+    }}
+  />
+)
 
 const officesArray = [
   {
@@ -68,16 +88,23 @@ const filialsArray = [
   },
 ]
 
-const OfficesItems = ({ fontSizeCorrection = 0, imgSizeCorrection = 1 }) =>
+const OfficesItems = ({
+  deviceSize = 5,
+  fontSizeCorrection = 0,
+  imgSizeCorrection = 1,
+}) =>
   officesArray.map((item, index) => {
     return (
       <li
         className="offices_item"
-        style={{ marginTop: index > 0 ? 24 * imgSizeCorrection : 0 }}
+        style={{
+          marginTop:
+            index > 0 ? (deviceSize >= 2 ? 24 : 18) * imgSizeCorrection : 0,
+        }}
       >
         <div
           className="offices_item_name"
-          style={{ fontSize: 18 + fontSizeCorrection }}
+          style={{ fontSize: (deviceSize >= 2 ? 18 : 13) + fontSizeCorrection }}
         >
           {item.name}
         </div>
@@ -85,7 +112,9 @@ const OfficesItems = ({ fontSizeCorrection = 0, imgSizeCorrection = 1 }) =>
           {item.phone ? (
             <a
               className="offices_item_phone"
-              style={{ fontSize: 18 + fontSizeCorrection }}
+              style={{
+                fontSize: (deviceSize >= 2 ? 18 : 13) + fontSizeCorrection,
+              }}
               href={'tel:' + item.phone.replace(/[^+\d]/g, '')}
             >
               {item.phone}
@@ -94,7 +123,9 @@ const OfficesItems = ({ fontSizeCorrection = 0, imgSizeCorrection = 1 }) =>
           {item.email ? (
             <a
               className="offices_item_email"
-              style={{ fontSize: 18 + fontSizeCorrection }}
+              style={{
+                fontSize: (deviceSize >= 2 ? 18 : 13) + fontSizeCorrection,
+              }}
               href={'mailto:' + item.email}
             >
               {item.email}
@@ -105,16 +136,23 @@ const OfficesItems = ({ fontSizeCorrection = 0, imgSizeCorrection = 1 }) =>
     )
   })
 
-const ProductionItems = ({ fontSizeCorrection = 0, imgSizeCorrection = 1 }) =>
+const ProductionItems = ({
+  deviceSize = 5,
+  fontSizeCorrection = 0,
+  imgSizeCorrection = 1,
+}) =>
   productionArray.map((item, index) => {
     return (
       <li
         className="production_item"
-        style={{ marginTop: index > 0 ? 24 * imgSizeCorrection : 0 }}
+        style={{
+          marginTop:
+            index > 0 ? (deviceSize >= 2 ? 24 : 18) * imgSizeCorrection : 0,
+        }}
       >
         <div
           className="production_item_name"
-          style={{ fontSize: 18 + fontSizeCorrection }}
+          style={{ fontSize: (deviceSize >= 2 ? 18 : 13) + fontSizeCorrection }}
         >
           {item.name}
         </div>
@@ -122,7 +160,9 @@ const ProductionItems = ({ fontSizeCorrection = 0, imgSizeCorrection = 1 }) =>
           {item.phone ? (
             <a
               className="production_item_phone"
-              style={{ fontSize: 18 + fontSizeCorrection }}
+              style={{
+                fontSize: (deviceSize >= 2 ? 18 : 13) + fontSizeCorrection,
+              }}
               href={'tel:' + item.phone.replace(/[^+\d]/g, '')}
             >
               {item.phone}
@@ -131,7 +171,9 @@ const ProductionItems = ({ fontSizeCorrection = 0, imgSizeCorrection = 1 }) =>
           {item.email ? (
             <a
               className="production_item_email"
-              style={{ fontSize: 18 + fontSizeCorrection }}
+              style={{
+                fontSize: (deviceSize >= 2 ? 18 : 13) + fontSizeCorrection,
+              }}
               href={'mailto:' + item.email}
             >
               {item.email}
@@ -142,16 +184,23 @@ const ProductionItems = ({ fontSizeCorrection = 0, imgSizeCorrection = 1 }) =>
     )
   })
 
-const FilialsItems = ({ fontSizeCorrection = 0, imgSizeCorrection = 1 }) =>
+const FilialsItems = ({
+  deviceSize = 5,
+  fontSizeCorrection = 0,
+  imgSizeCorrection = 1,
+}) =>
   filialsArray.map((item, index) => {
     return (
       <li
         className="filials_item"
-        style={{ marginTop: index > 0 ? 24 * imgSizeCorrection : 0 }}
+        style={{
+          marginTop:
+            index > 0 ? (deviceSize >= 2 ? 24 : 18) * imgSizeCorrection : 0,
+        }}
       >
         <div
           className="filials_item_name"
-          style={{ fontSize: 18 + fontSizeCorrection }}
+          style={{ fontSize: (deviceSize >= 2 ? 18 : 13) + fontSizeCorrection }}
         >
           {item.city}
           <br />
@@ -161,7 +210,9 @@ const FilialsItems = ({ fontSizeCorrection = 0, imgSizeCorrection = 1 }) =>
           {item.phone1 ? (
             <a
               className="filials_item_phone"
-              style={{ fontSize: 18 + fontSizeCorrection }}
+              style={{
+                fontSize: (deviceSize >= 2 ? 18 : 13) + fontSizeCorrection,
+              }}
               href={'tel:' + item.phone1.replace(/[^+\d]/g, '')}
             >
               {item.phone1}
@@ -170,7 +221,9 @@ const FilialsItems = ({ fontSizeCorrection = 0, imgSizeCorrection = 1 }) =>
           {item.phone2 ? (
             <a
               className="filials_item_phone"
-              style={{ fontSize: 18 + fontSizeCorrection }}
+              style={{
+                fontSize: (deviceSize >= 2 ? 18 : 13) + fontSizeCorrection,
+              }}
               href={'tel:' + item.phone2.replace(/[^+\d]/g, '')}
             >
               {item.phone2}
@@ -179,7 +232,9 @@ const FilialsItems = ({ fontSizeCorrection = 0, imgSizeCorrection = 1 }) =>
           {item.workTime ? (
             <div
               className="filials_item_workTime"
-              style={{ fontSize: 18 + fontSizeCorrection }}
+              style={{
+                fontSize: (deviceSize >= 2 ? 18 : 13) + fontSizeCorrection,
+              }}
               href={'mailto:' + item.workTime}
             >
               {item.workTime}
@@ -211,6 +266,19 @@ const Contacts = ({
   imgSizeCorrection = 1,
 }) => {
   fontSizeCorrection = fontSizeCorrection / 2
+
+  const [officesOpen, setOfficesOpen] = useState(false)
+  const [filialsOpen, setFilialsOpen] = useState(false)
+  const [productionOpen, setProductionOpen] = useState(false)
+  const toggleOffices = () => {
+    setOfficesOpen(!officesOpen)
+  }
+  const toggleProduction = () => {
+    setProductionOpen(!productionOpen)
+  }
+  const toggleFilials = () => {
+    setFilialsOpen(!filialsOpen)
+  }
   // const fontSize = adaptiveFontSize(deviceSize)
   return (
     <div className="w-full overflow-hidden">
@@ -219,8 +287,8 @@ const Contacts = ({
         style={{
           paddingLeft: paddingHorizontal,
           paddingRight: paddingHorizontal,
-          paddingTop: 60,
-          paddingBottom: 60,
+          paddingTop: deviceSize >= 2 ? 60 : 30,
+          paddingBottom: deviceSize >= 2 ? 60 : 30,
           position: 'relative',
           // height: 770,
           background:
@@ -231,82 +299,172 @@ const Contacts = ({
           style={{
             textAlign: 'center',
             width: '100%',
-            fontSize: 64 + fontSizeCorrection,
+            fontSize: (deviceSize >= 2 ? 64 : 20) + fontSizeCorrection,
             fontWeight: 500,
             color: '#FFEE17',
             textTransform: 'uppercase',
-            marginBottom: 30,
+            marginBottom: deviceSize >= 2 ? 30 : 10,
           }}
         >
           Контакты
         </h2>
-        <div className="w-full flex flex-row" style={{ gap: 150 }}>
-          <div style={{ flex: 1 }}>
-            <div
-              className="offices_title"
-              style={{
-                fontSize: 18 + fontSizeCorrection,
-                marginTop: 18 * imgSizeCorrection,
-              }}
-            >
-              <strong>ОФИС</strong> / Пермский край, г. Верещагино
+        {deviceSize <= 1 ? (
+          <div className="w-full flex flex-col" style={{ gap: 15 }}>
+            <div className="w-full flex flex-row items-center">
+              <Dot />
+              <div
+                className="offices_title"
+                style={{
+                  flex: 1,
+                  fontSize: 16 + fontSizeCorrection,
+                  // marginTop: 16 * imgSizeCorrection,
+                }}
+              >
+                <strong>ОФИС</strong> / Пермский край, г. Верещагино
+              </div>
+              <ListArrow listOpen={officesOpen} onClick={toggleOffices} />
             </div>
-            <Separator imgSizeCorrection={imgSizeCorrection} />
-            <ul className="offices">
+            <ul className={'offices' + (officesOpen ? ' open' : '')}>
               <OfficesItems
+                deviceSize={deviceSize}
                 fontSizeCorrection={fontSizeCorrection}
                 imgSizeCorrection={imgSizeCorrection}
               />
             </ul>
-          </div>
-          <div style={{ flex: 1 }}>
-            <div
-              className="filials_title"
-              style={{
-                fontSize: 18 + fontSizeCorrection,
-                marginTop: 18 * imgSizeCorrection,
-              }}
-            >
-              <strong>ФИЛИАЛЫ</strong> / Пермский край
+            <div className="w-full flex flex-row items-center">
+              <Dot />
+              <div
+                className="filials_title"
+                style={{
+                  flex: 1,
+                  fontSize: 16 + fontSizeCorrection,
+                  // marginTop: 16 * imgSizeCorrection,
+                }}
+              >
+                <strong>ФИЛИАЛЫ</strong> / Пермский край
+              </div>
+              <ListArrow listOpen={filialsOpen} onClick={toggleFilials} />
             </div>
-            <Separator imgSizeCorrection={imgSizeCorrection} />
-            <ul className="filials">
+            <ul className={'filials' + (filialsOpen ? ' open' : '')}>
               <FilialsItems
+                deviceSize={deviceSize}
                 fontSizeCorrection={fontSizeCorrection}
                 imgSizeCorrection={imgSizeCorrection}
               />
             </ul>
-            <div
-              className="production_title"
-              style={{
-                fontSize: 18 + fontSizeCorrection,
-                marginTop: 18 * imgSizeCorrection,
-              }}
-            >
-              <strong>ПРОИЗВОДСТВО</strong> / Пермский край,
-              <br />
-              д.Рябины, ул.Птицеводов, 5
+            <div className="w-full flex flex-row items-center">
+              <Dot />
+              <div
+                className="production_title"
+                style={{
+                  flex: 1,
+                  fontSize: 16 + fontSizeCorrection,
+                  // marginTop: 16 * imgSizeCorrection,
+                }}
+              >
+                <strong>ПРОИЗВОДСТВО</strong> / Пермский край,
+                <br />
+                д.Рябины, ул.Птицеводов, 5
+              </div>
+              {/* <ListArrow listOpen={productionOpen} onClick={toggleProduction} /> */}
             </div>
-            <Separator imgSizeCorrection={imgSizeCorrection} />
-            <ul className="production">
+            {/* <ul className={'production' + (productionOpen ? ' open' : '')}> */}
+            <ul className={'production open'}>
               <ProductionItems
+                deviceSize={deviceSize}
                 fontSizeCorrection={fontSizeCorrection}
                 imgSizeCorrection={imgSizeCorrection}
               />
             </ul>
-            <div
-              className="shop_title"
-              style={{
-                fontSize: 18 + fontSizeCorrection,
-                marginTop: 18 * imgSizeCorrection,
-              }}
-            >
-              <strong>ФИРМЕННЫЙ МАГАЗИН</strong> / Пермский край,
-              <br />
-              г.Верещагино, ул.Фабричная, 69В ТЦ "Лето"
+            <div className="w-full flex flex-row items-center">
+              <Dot />
+              <div
+                className="shop_title"
+                style={{
+                  fontSize: 16 + fontSizeCorrection,
+                }}
+              >
+                <strong>ФИРМЕННЫЙ МАГАЗИН</strong> / Пермский край,
+                <br />
+                г.Верещагино, ул.Фабричная, 69В ТЦ "Лето"
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="w-full flex flex-row" style={{ gap: 150 }}>
+            <div style={{ flex: 1 }}>
+              <div>
+                <div
+                  className="offices_title"
+                  style={{
+                    fontSize: 18 + fontSizeCorrection,
+                    marginTop: 18 * imgSizeCorrection,
+                  }}
+                >
+                  <strong>ОФИС</strong> / Пермский край, г. Верещагино
+                </div>
+              </div>
+              <div className="list-arrow"></div>
+              <Separator imgSizeCorrection={imgSizeCorrection} />
+              <ul className="offices open">
+                <OfficesItems
+                  deviceSize={deviceSize}
+                  fontSizeCorrection={fontSizeCorrection}
+                  imgSizeCorrection={imgSizeCorrection}
+                />
+              </ul>
+            </div>
+            <div style={{ flex: 1 }}>
+              <div
+                className="filials_title"
+                style={{
+                  fontSize: 18 + fontSizeCorrection,
+                  marginTop: 18 * imgSizeCorrection,
+                }}
+              >
+                <strong>ФИЛИАЛЫ</strong> / Пермский край
+              </div>
+              <Separator imgSizeCorrection={imgSizeCorrection} />
+              <ul className="filials open">
+                <FilialsItems
+                  deviceSize={deviceSize}
+                  fontSizeCorrection={fontSizeCorrection}
+                  imgSizeCorrection={imgSizeCorrection}
+                />
+              </ul>
+              <div
+                className="production_title"
+                style={{
+                  fontSize: 18 + fontSizeCorrection,
+                  marginTop: 18 * imgSizeCorrection,
+                }}
+              >
+                <strong>ПРОИЗВОДСТВО</strong> / Пермский край,
+                <br />
+                д.Рябины, ул.Птицеводов, 5
+              </div>
+              <Separator imgSizeCorrection={imgSizeCorrection} />
+              <ul className="production open">
+                <ProductionItems
+                  deviceSize={deviceSize}
+                  fontSizeCorrection={fontSizeCorrection}
+                  imgSizeCorrection={imgSizeCorrection}
+                />
+              </ul>
+              <div
+                className="shop_title"
+                style={{
+                  fontSize: 18 + fontSizeCorrection,
+                  marginTop: 18 * imgSizeCorrection,
+                }}
+              >
+                <strong>ФИРМЕННЫЙ МАГАЗИН</strong> / Пермский край,
+                <br />
+                г.Верещагино, ул.Фабричная, 69В ТЦ "Лето"
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )
