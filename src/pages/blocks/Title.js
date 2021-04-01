@@ -7,9 +7,13 @@ import Button from '../components/Button'
 // import adaptiveFontSize from '../../helpers/adaptiveFontSize'
 import background from '../../img/background.jpg'
 import background1370 from '../../img/background1370.jpg'
-import phoneBackground1 from '../../img/phone/background_small1.png'
-import phoneBackground2 from '../../img/phone/background_small2.png'
-import phoneBackground3 from '../../img/phone/background_small3.png'
+import volna from '../../img/phone/volna.png'
+import product1 from '../../img/phone/product1.png'
+import product2 from '../../img/phone/product2.png'
+import product3 from '../../img/phone/product3.png'
+// import phoneBackground1 from '../../img/phone/background_small1.png'
+// import phoneBackground2 from '../../img/phone/background_small2.png'
+// import phoneBackground3 from '../../img/phone/background_small3.png'
 import lubprod from '../../img/lubprod_logo.png'
 import phone from '../../img/phone.png'
 import arrow from '../../img/arrow.png'
@@ -59,7 +63,7 @@ const HeadPanel = ({
       <Link
         activeClass="active"
         className="menu_item_mobile"
-        style={{ paddingLeft: 14 }}
+        style={{ paddingLeft: 14, transitionDelay: 0.4 + 0.1 * index + 's' }}
         to={href}
         spy={true}
         smooth={true}
@@ -163,7 +167,8 @@ const HeadPanel = ({
   )
 }
 
-const mobileBackgrounds = [phoneBackground1, phoneBackground2, phoneBackground3]
+// const mobileBackgrounds = [phoneBackground1, phoneBackground2, phoneBackground3]
+const mobileBgProducts = [product1, product2, product3]
 
 const Title = ({
   menuOpen = false,
@@ -183,7 +188,7 @@ const Title = ({
 
   // const fontSize = adaptiveFontSize(deviceSize)
   return (
-    <div className="w-full overflow-hidden">
+    <div className="w-full overflow-hidden relative">
       {/*                           Титул                                      */}
       <ReactInterval
         timeout={3000}
@@ -194,23 +199,39 @@ const Title = ({
         className="w-full flex flex-col"
         style={{
           height: 0,
-          backgroundImage: `url(${mobileBackgrounds[0]})`,
+          backgroundImage: `url(${mobileBgProducts[0]})`,
         }}
       />
       <div
         className="w-full flex flex-col"
         style={{
           height: 0,
-          backgroundImage: `url(${mobileBackgrounds[1]})`,
+          backgroundImage: `url(${mobileBgProducts[1]})`,
         }}
       />
       <div
         className="w-full flex flex-col"
         style={{
           height: 0,
-          backgroundImage: `url(${mobileBackgrounds[2]})`,
+          backgroundImage: `url(${mobileBgProducts[2]})`,
         }}
       />
+      {/* {deviceSize === 0 ?
+      <div
+        className="w-full flex flex-col"
+        style={{
+          height: 568,
+          paddingLeft: paddingHorizontal,
+          paddingRight: paddingHorizontal,
+          paddingTop: deviceSize >= 2 ? 70 : 31,
+          paddingBottom: 100,
+          position: 'relative',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          transition: 'background 0.8s linear',
+          backgroundImage: `url(${volna})`,
+        }}
+      /> : null} */}
       <div
         className="w-full flex flex-col"
         style={{
@@ -225,13 +246,60 @@ const Title = ({
           transition: 'background 0.8s linear',
           backgroundImage: `url(${
             deviceSize === 0
-              ? mobileBackgrounds[bgNum]
+              ? null
               : deviceSize <= 4
               ? background1370
               : background
           })`,
         }}
       >
+        {deviceSize === 0 ? (
+          <>
+            <div
+              className="object-fill absolute"
+              style={{
+                height: 414,
+                width: '100%',
+                minWidth: 300,
+                top: 0,
+                left: 0,
+                backgroundSize: 'cover',
+                backgroundPositionY: 'bottom',
+                transition: 'background 0.8s linear',
+                backgroundImage: `url(${volna})`,
+                zIndex: 0,
+              }}
+            />
+            <div
+              className="object-fill absolute"
+              style={{
+                height: 262,
+                width: '100%',
+                minWidth: 335,
+                bottom: 0,
+                left: 0,
+                backgroundSize: 'contain',
+                backgroundPositionY: 'bottom',
+                transition: 'background 0.8s linear',
+                backgroundImage: `url(${mobileBgProducts[bgNum]})`,
+                zIndex: -1,
+              }}
+            />
+            {/* <img
+              className="object-fill absolute"
+              style={{
+                // height: 400,
+                width: 414,
+                minWidth: 414,
+                bottom: 0,
+                left: 0,
+              }}
+              src={mobileBgProducts[bgNum]}
+              alt="product"
+            /> */}
+          </>
+        ) : null}
+
         <HeadPanel
           deviceSize={deviceSize}
           menuOpen={menuOpen}
@@ -246,7 +314,7 @@ const Title = ({
               className="w-full flex flex-row"
               style={{
                 position: 'relative',
-                paddingBottom: 15,
+                paddingBottom: 10,
               }}
             >
               <a href="#">
@@ -287,6 +355,8 @@ const Title = ({
                 style={{
                   width: '100%',
                   textAlign: 'center',
+                  paddingLeft: 2,
+                  paddingRight: 2,
                   // height: 132,
                   fontSize: 28 + fontSizeCorrection,
                   fontStyle: 'normal',

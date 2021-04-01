@@ -41,17 +41,17 @@
 /* ANIMATION */
 
 .menu-btn.open .menu-btn__burger {
-  transform: translateX(-50px);
+  transform: translateX(-250px);
   background: transparent;
   box-shadow: none;
 }
 
 .menu-btn.open .menu-btn__burger:before {
-  transform: rotate(45deg) translate(35px, -35px)
+  transform: rotate(45deg) translate(175px, -175px)
 }
 
 .menu-btn.open .menu-btn__burger:after {
-  transform: rotate(-45deg) translate(35px, 35px)
+  transform: rotate(-45deg) translate(175px, 175px)
 }
 
 .overlay {
@@ -114,10 +114,17 @@
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
-  color: #FFFFFF;
+  color: transparent;
   padding-left: 14px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.48);
   line-height: 76px;
+  transition: 0.5s;
+  transition-delay: 0s;
+}
+
+.overlay.open .mobile_menu_header {
+  color: #FFFFFF;
+  transition-delay: 0.3s;
 }
 
 .menu_item_mobile {
@@ -127,8 +134,17 @@
   font-weight: 400;
   margin-right: 38px;
   cursor: pointer;
-  color: #fff;
+  color: transparent;
   /* padding-top: 12px; */
+  line-height: 0px;
+  transition-delay: 0s;
+  transition: 0s;
+}
+
+.overlay.open .menu_item_mobile {
+  color: #fff;
+  /* transition-delay: 0s; */
+  transition: color 0.5s ease-out, line-height 0.3s ease-out;
   line-height: 50px;
 }
 
