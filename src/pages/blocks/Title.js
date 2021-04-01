@@ -5,7 +5,8 @@ import ReactInterval from 'react-interval'
 import './Title.css'
 import Button from '../components/Button'
 // import adaptiveFontSize from '../../helpers/adaptiveFontSize'
-import background from '../../img/background.png'
+import background from '../../img/background.jpg'
+import background1370 from '../../img/background1370.jpg'
 import phoneBackground1 from '../../img/phone/background_small1.png'
 import phoneBackground2 from '../../img/phone/background_small2.png'
 import phoneBackground3 from '../../img/phone/background_small3.png'
@@ -223,7 +224,11 @@ const Title = ({
           backgroundPosition: 'center',
           transition: 'background 0.8s linear',
           backgroundImage: `url(${
-            deviceSize === 0 ? mobileBackgrounds[bgNum] : background
+            deviceSize === 0
+              ? mobileBackgrounds[bgNum]
+              : deviceSize <= 4
+              ? background1370
+              : background
           })`,
         }}
       >
