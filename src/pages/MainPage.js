@@ -52,7 +52,7 @@ const MainPage = () => {
       ? 3
       : width > 900
       ? 2
-      : width > 420
+      : width > 414
       ? 1
       : 0
   const paddingHorizontal =

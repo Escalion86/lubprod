@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-scroll'
+import ReactInterval from 'react-interval'
 
 import './Title.css'
 import Button from '../components/Button'
 // import adaptiveFontSize from '../../helpers/adaptiveFontSize'
 import background from '../../img/background.png'
+import phoneBackground1 from '../../img/phone/background_small1.png'
+import phoneBackground2 from '../../img/phone/background_small2.png'
+import phoneBackground3 from '../../img/phone/background_small3.png'
 import lubprod from '../../img/lubprod_logo.png'
 import phone from '../../img/phone.png'
 import arrow from '../../img/arrow.png'
@@ -158,6 +162,8 @@ const HeadPanel = ({
   )
 }
 
+const mobileBackgrounds = [phoneBackground1, phoneBackground2, phoneBackground3]
+
 const Title = ({
   menuOpen = false,
   onClick = () => {},
@@ -167,14 +173,47 @@ const Title = ({
   fontSizeCorrection = 0,
   imgSizeCorrection = 1,
 }) => {
+  const [bgNum, setBgNum] = useState(0)
+
+  const nextBg = () => {
+    if (bgNum >= 2) setBgNum(0)
+    else setBgNum(bgNum + 1)
+  }
+
   // const fontSize = adaptiveFontSize(deviceSize)
   return (
     <div className="w-full overflow-hidden">
       {/*                           Титул                                      */}
-
+      <ReactInterval
+        timeout={3000}
+        enabled={deviceSize === 0}
+        callback={() => nextBg()}
+      />
       <div
         className="w-full flex flex-col"
         style={{
+          height: 0,
+          backgroundImage: `url(${mobileBackgrounds[0]})`,
+        }}
+      />
+      <div
+        className="w-full flex flex-col"
+        style={{
+          height: 0,
+          backgroundImage: `url(${mobileBackgrounds[1]})`,
+        }}
+      />
+      <div
+        className="w-full flex flex-col"
+        style={{
+          height: 0,
+          backgroundImage: `url(${mobileBackgrounds[2]})`,
+        }}
+      />
+      <div
+        className="w-full flex flex-col"
+        style={{
+          height: deviceSize >= 2 ? 700 : 568,
           paddingLeft: paddingHorizontal,
           paddingRight: paddingHorizontal,
           paddingTop: deviceSize >= 2 ? 70 : 31,
@@ -182,8 +221,10 @@ const Title = ({
           position: 'relative',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          height: deviceSize >= 2 ? 700 : 568,
-          backgroundImage: `url(${background})`,
+          transition: 'background 0.8s linear',
+          backgroundImage: `url(${
+            deviceSize === 0 ? mobileBackgrounds[bgNum] : background
+          })`,
         }}
       >
         <HeadPanel
