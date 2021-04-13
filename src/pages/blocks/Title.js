@@ -427,7 +427,7 @@ const Title = ({
                     Продукты питания собственного производства
                   </h1>
                 </div>
-                <div style={{ width: 230, textAlign: 'right' }}>
+                <div style={{ width: 350, textAlign: 'right' }}>
                   <div
                     style={{
                       fontWeight: 900,

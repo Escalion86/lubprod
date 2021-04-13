@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   justify-content: center;
   padding-top: 40px;
-  max-width: 1200px;
+  /* max-width: 1200px; */
 }
 
 .products .products_item {
@@ -15,6 +15,8 @@
   height: 100%;
   justify-content: center;
   background: rgba(137, 137, 137, 0.5);
+  display: flex;
+  flex-direction: column;
 }
 
 .products .products_item:hover .products_content {
@@ -27,11 +29,15 @@
 }
 
 .products .products_item .products_content>div {
-  width: 70%;
+  width: 90%;
+  flex: 1;
   margin-left: auto;
   margin-right: auto;
   font-weight: bold;
   /* line-height: 21px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   color: #000000;
   text-transform: uppercase;

@@ -34,19 +34,22 @@ const ProductsItems = ({
       <li
         className="products_item"
         style={{
-          width: 239 * imgSizeCorrection,
-          height: 296 * imgSizeCorrection,
+          width: (deviceSize > 5 ? 190 : 239) * imgSizeCorrection,
+          height: (deviceSize > 5 ? 260 : 296) * imgSizeCorrection,
         }}
       >
         <div
           className="products_content"
-          style={{ fontSize: 20 * imgSizeCorrection, lineHeight: 1.1 }}
+          style={{
+            fontSize: (deviceSize > 5 ? 18 : 20) * imgSizeCorrection,
+            lineHeight: 1.1,
+          }}
         >
           <img
             className="object-fill"
             style={{
-              width: 239 * imgSizeCorrection,
-              minWidth: 239 * imgSizeCorrection,
+              width: (deviceSize > 5 ? 190 : 239) * imgSizeCorrection,
+              minWidth: (deviceSize > 5 ? 190 : 239) * imgSizeCorrection,
             }}
             src={item.src}
             alt={item.name}
@@ -56,19 +59,21 @@ const ProductsItems = ({
         <div
           className="products_button"
           style={{
-            width: 239 * imgSizeCorrection,
-            height: 296 * imgSizeCorrection,
+            width: (deviceSize > 5 ? 190 : 239) * imgSizeCorrection,
+            height: (deviceSize > 5 ? 260 : 296) * imgSizeCorrection,
           }}
         >
           <Button
             href="docs/Catalog_2021.pdf"
-            style={{ width: 229 * imgSizeCorrection }}
+            style={{
+              width: (deviceSize > 5 ? 180 : 229) * imgSizeCorrection,
+            }}
             imgSrc={arrow}
             imgAlt="arrow"
             imgH={23 * imgSizeCorrection}
             imgW={27 * imgSizeCorrection}
             fontWeight={700}
-            fontSize={20 + fontSizeCorrection + (deviceSize >= 2 ? 0 : -8)}
+            fontSize={16 + fontSizeCorrection + (deviceSize >= 2 ? 0 : -8)}
             name="скачать каталог"
           />
         </div>
@@ -92,8 +97,8 @@ const Products = ({
       <div
         className="w-full flex flex-col items-center"
         style={{
-          paddingLeft: paddingHorizontal,
-          paddingRight: paddingHorizontal,
+          paddingLeft: deviceSize > 5 ? 20 : paddingHorizontal,
+          paddingRight: deviceSize > 5 ? 20 : paddingHorizontal,
           paddingTop: deviceSize >= 2 ? 70 : 30,
           paddingBottom: deviceSize >= 2 ? 50 : 30,
           position: 'relative',
@@ -106,7 +111,7 @@ const Products = ({
           style={{
             textAlign: 'center',
             width: '100%',
-            fontSize: (deviceSize >= 2 ? 64 : 20) + fontSizeCorrection,
+            fontSize: (deviceSize >= 2 ? 56 : 20) + fontSizeCorrection,
             fontWeight: 500,
             color: '#000324',
             textTransform: 'uppercase',
@@ -114,7 +119,7 @@ const Products = ({
         >
           Продукция
         </h2>
-        <ul className="products" style={{ gap: 38 * imgSizeCorrection }}>
+        <ul className="products" style={{ gap: 20 * imgSizeCorrection }}>
           <ProductsItems
             deviceSize={deviceSize}
             fontSizeCorrection={fontSizeCorrection}

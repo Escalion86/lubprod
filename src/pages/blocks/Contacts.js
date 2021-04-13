@@ -299,7 +299,7 @@ const Contacts = ({
           style={{
             textAlign: 'center',
             width: '100%',
-            fontSize: (deviceSize >= 2 ? 64 : 20) + fontSizeCorrection,
+            fontSize: (deviceSize >= 2 ? 56 : 20) + fontSizeCorrection,
             fontWeight: 500,
             color: '#FFEE17',
             textTransform: 'uppercase',
@@ -366,10 +366,10 @@ const Contacts = ({
                 <br />
                 д.Рябины, ул.Птицеводов, 5
               </div>
-              {/* <ListArrow listOpen={productionOpen} onClick={toggleProduction} /> */}
+              <ListArrow listOpen={productionOpen} onClick={toggleProduction} />
             </div>
-            {/* <ul className={'production' + (productionOpen ? ' open' : '')}> */}
-            <ul className={'production open'}>
+            <ul className={'production' + (productionOpen ? ' open' : '')}>
+              {/* <ul className={'production open'}> */}
               <ProductionItems
                 deviceSize={deviceSize}
                 fontSizeCorrection={fontSizeCorrection}

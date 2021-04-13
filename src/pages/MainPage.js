@@ -44,7 +44,9 @@ const MainPage = () => {
 
   const { width } = useWindowDimensions()
   const deviceSize =
-    width >= 1370
+    width >= 1540
+      ? 6
+      : width > 1370
       ? 5
       : width > 1225
       ? 4
@@ -56,7 +58,9 @@ const MainPage = () => {
       ? 1
       : 0
   const paddingHorizontal =
-    deviceSize === 5
+    deviceSize === 6
+      ? 135
+      : deviceSize === 5
       ? 135
       : deviceSize === 4
       ? 120
@@ -68,7 +72,9 @@ const MainPage = () => {
       ? 45
       : 15
   const fontSizeCorrection =
-    deviceSize === 5
+    deviceSize === 6
+      ? 0
+      : deviceSize === 5
       ? 0
       : deviceSize === 4
       ? -4
@@ -80,7 +86,9 @@ const MainPage = () => {
       ? 0
       : -4
   const imgSizeCorrection =
-    deviceSize === 5
+    deviceSize === 6
+      ? 1
+      : deviceSize === 5
       ? 1
       : deviceSize === 4
       ? 0.9

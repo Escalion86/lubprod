@@ -100,7 +100,7 @@ const About = ({
           <h2
             style={{
               textAlign: deviceSize >= 2 ? 'center' : 'left',
-              fontSize: (deviceSize >= 2 ? 64 : 20) + fontSizeCorrection,
+              fontSize: (deviceSize >= 2 ? 56 : 20) + fontSizeCorrection,
               fontWeight: 500,
               color: '#000324',
               // marginTop: 29,
@@ -175,7 +175,7 @@ const About = ({
             <h2
               style={{
                 position: 'relative',
-                fontSize: 64 + fontSizeCorrection,
+                fontSize: 56 + fontSizeCorrection,
                 fontWeight: 500,
                 color: '#000324',
                 textAlign: 'center',
@@ -230,7 +230,7 @@ const About = ({
               style={{
                 position: 'relative',
                 marginTop: 20,
-                fontSize: 46 + fontSizeCorrection,
+                fontSize: 42 + fontSizeCorrection,
                 fontWeight: 500,
                 color: '#000000',
                 textAlign: 'center',
