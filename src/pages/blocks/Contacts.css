@@ -26,11 +26,11 @@
   color: #E5E5E5;
 }
 
-.offices_item_phone, .offices_item_email, .filials_item_phone, .production_item_phone, .production_item_email {
+.offices_item_phone, .offices_item_email, .filials_item_phone, .filials_item_email, .production_item_phone, .production_item_email {
   cursor: pointer;
 }
 
-.offices_item_phone, .offices_item_email, .filials_item_phone, .filials_item_workTime, .production_item_phone, .production_item_email {
+.offices_item_phone, .offices_item_email, .filials_item_phone, .filials_item_email, .filials_item_workTime, .production_item_phone, .production_item_email {
   text-align: right;
   font-family: Roboto;
   font-style: normal;

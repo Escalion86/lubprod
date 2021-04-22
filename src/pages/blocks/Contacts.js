@@ -46,7 +46,6 @@ const officesArray = [
     email: 'operator@lubprod.ru',
   },
   { name: 'Отдел маркетинга', phone: null, email: 'marketing@lubprod.ru' },
-  { name: 'Коммерческий директор', phone: null, email: 's.shmyrin@lubprod.ru' },
 ]
 
 const productionArray = [
@@ -63,6 +62,7 @@ const filialsArray = [
     adress: 'ул. Энергетиков, 18',
     phone1: '+7 (34254) 3-60-76',
     phone2: '+7 (34254) 3-60-77',
+    email: null,
     workTime: null,
   },
   {
@@ -70,6 +70,7 @@ const filialsArray = [
     adress: 'ул. Автозаправочная, 9/2',
     phone1: '+7 (342) 604-10-07',
     phone2: null,
+    email: 'kud.operator@lubprod.ru',
     workTime: 'с 9:00 до 17:00',
   },
   {
@@ -77,6 +78,7 @@ const filialsArray = [
     adress: 'ул. Пролетарская, 106А',
     phone1: '+7 (342) 713-99-37',
     phone2: null,
+    email: 'kungur.operator@lubprod.ru',
     workTime: 'с 9:00 до 17:00',
   },
   {
@@ -84,6 +86,7 @@ const filialsArray = [
     adress: 'ул. 3-Водопроводная, база "Гастроном", склад №1',
     phone1: '+7 (908) 254-40-32',
     phone2: null,
+    email: 'prm.operator@lubprod.ru',
     workTime: null,
   },
 ]
@@ -227,6 +230,17 @@ const FilialsItems = ({
               href={'tel:' + item.phone2.replace(/[^+\d]/g, '')}
             >
               {item.phone2}
+            </a>
+          ) : null}
+          {item.email ? (
+            <a
+              className="filials_item_email"
+              style={{
+                fontSize: (deviceSize >= 2 ? 18 : 13) + fontSizeCorrection,
+              }}
+              href={'mailto:' + item.email}
+            >
+              {item.email}
             </a>
           ) : null}
           {item.workTime ? (
