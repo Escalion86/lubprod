@@ -381,6 +381,7 @@ const Title = ({
                 fontWeight={700}
                 fontSize={20 + fontSizeCorrection}
                 name="скачать каталог"
+                download
               />
             </div>
           </div>

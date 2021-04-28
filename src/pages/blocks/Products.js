@@ -75,6 +75,7 @@ const ProductsItems = ({
             fontWeight={700}
             fontSize={16 + fontSizeCorrection + (deviceSize >= 2 ? 0 : -8)}
             name="скачать каталог"
+            download
           />
         </div>
       </li>

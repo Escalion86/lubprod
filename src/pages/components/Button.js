@@ -13,6 +13,7 @@ const Button = ({
   imgH = 0,
   imgAlt = '',
   className = null,
+  download = false,
 }) => {
   return (
     <a
@@ -22,6 +23,7 @@ const Button = ({
         (className ? ' ' + className : '')
       }
       style={{ ...style }}
+      download={download}
     >
       {imgSrc ? (
         <img
