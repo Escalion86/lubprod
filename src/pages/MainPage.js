@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import React, { useState } from 'react'
-import { Link, Element } from 'react-scroll'
+import { Element } from 'react-scroll'
 
 import useWindowDimensions from '../helpers/useWindowDimensions'
 

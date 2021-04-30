@@ -1,32 +1,32 @@
-import React from "react";
-import { Link } from "react-scroll";
+import React from 'react'
+import { Link } from 'react-scroll'
 
-import "./HeadPanel.css";
+import './HeadPanel.css'
 
-import headLogo from "../../img/HeadLogo.png";
-import whatsappIcon from "../../img/whatsapp.png";
-import viberIcon from "../../img/viber.png";
+import headLogo from '../../img/HeadLogo.png'
+import whatsappIcon from '../../img/whatsapp.png'
+import viberIcon from '../../img/viber.png'
 
-import Button from "../../components/Button";
+import Button from '../../components/Button'
 
 const menuItems = [
-  { name: "Об академии", href: "about" },
-  { name: "Наша команда", href: "" },
-  { name: "Абонементы", href: "" },
-  { name: "Отзывы", href: "" },
-  { name: "Расписание и филиалы", href: "" },
-  { name: "Контакты", href: "" },
-];
+  { name: 'Об академии', href: 'about' },
+  { name: 'Наша команда', href: '' },
+  { name: 'Абонементы', href: '' },
+  { name: 'Отзывы', href: '' },
+  { name: 'Расписание и филиалы', href: '' },
+  { name: 'Контакты', href: '' },
+]
 
 const Burger = ({ menuOpen, onClick }) => {
   return (
-    <div className={"menu-btn" + (menuOpen ? " open" : "")} onClick={onClick}>
+    <div className={'menu-btn' + (menuOpen ? ' open' : '')} onClick={onClick}>
       <div className="menu-btn__burger" />
     </div>
-  );
-};
+  )
+}
 
-const MenuItem = ({ text = "", href = "" }) => {
+const MenuItem = ({ text = '', href = '' }) => {
   return (
     <Link
       activeClass="active"
@@ -39,16 +39,16 @@ const MenuItem = ({ text = "", href = "" }) => {
     >
       {text}
     </Link>
-  );
-};
+  )
+}
 
-const MenuSeperator = ({ text = "", href = "" }) => {
+const MenuSeperator = ({ text = '', href = '' }) => {
   return (
     <div className="bg-white h-8 w-0.5 rounded" href={href}>
       {text}
     </div>
-  );
-};
+  )
+}
 
 const HeadPanel = ({
   menuOpen = false,
@@ -58,24 +58,24 @@ const HeadPanel = ({
 }) => {
   const MenuItemsPC = menuItems.map(({ name, href }, index) => {
     if (index === menuItems.length - 1) {
-      return <MenuItem key={"menuItem" + index} text={name} href={href} />;
+      return <MenuItem key={'menuItem' + index} text={name} href={href} />
     } else {
       return (
         <>
-          <MenuItem key={"menuItem" + index} text={name} href={href} />
-          <MenuSeperator key={"separator" + index} />
+          <MenuItem key={'menuItem' + index} text={name} href={href} />
+          <MenuSeperator key={'separator' + index} />
         </>
-      );
+      )
     }
-  });
+  })
 
-  const MenuItemsMobile = menuItems.map(({ name = "", href = "" }, index) => {
+  const MenuItemsMobile = menuItems.map(({ name = '', href = '' }, index) => {
     return (
       <Link
         activeClass="active"
         className={
-          (deviceSize === 2 ? "text-4xl" : "text-3xl") +
-          " z-1 block my-6 font-bold text-primary hover:text-active cursor-pointer"
+          (deviceSize === 2 ? 'text-4xl' : 'text-3xl') +
+          ' z-1 block my-6 font-bold text-primary hover:text-active cursor-pointer'
         }
         to={href}
         spy={true}
@@ -83,19 +83,19 @@ const HeadPanel = ({
         duration={500}
         offset={-114}
         onClick={closeMenu}
-        key={"menuItemMobile" + index}
+        key={'menuItemMobile' + index}
       >
         {name}
       </Link>
       // <a className="z-1 font-bold text-primary hover:text-active" href={href}>
       //   {name}
       // </a>
-    );
-  });
+    )
+  })
 
   return (
     <div
-      className={"relative w-full h-" + (deviceSize <= 2 ? 16 : 28) + " z-50"}
+      className={'relative w-full h-' + (deviceSize <= 2 ? 16 : 28) + ' z-50'}
     >
       <div className="fixed bg-white">
         {deviceSize <= 2 ? (
@@ -133,8 +133,8 @@ const HeadPanel = ({
                   ) : null}
                   <a
                     className={
-                      (deviceSize >= 2 ? " text-3xl" : "text-2xl") +
-                      " text-text font-bold ml-4"
+                      (deviceSize >= 2 ? ' text-3xl' : 'text-2xl') +
+                      ' text-text font-bold ml-4'
                     }
                     href="tel:+79138370020"
                     target="_blank"
@@ -146,8 +146,8 @@ const HeadPanel = ({
               </div>
               <div
                 className={
-                  "absolute z-1 flex flex-col items-center justify-center overlay" +
-                  (menuOpen ? " open" : "")
+                  'absolute z-1 flex flex-col items-center justify-center overlay' +
+                  (menuOpen ? ' open' : '')
                 }
               >
                 <div className="overlay-content overflow-hidden">
@@ -214,7 +214,7 @@ const HeadPanel = ({
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default HeadPanel;
+export default HeadPanel

@@ -66,7 +66,7 @@ const About = ({
             <h2
               style={{
                 position: 'relative',
-                fontSize: 20 + fontSizeCorrection,
+                fontSize: 28 + fontSizeCorrection,
                 fontWeight: 500,
                 color: '#000324',
                 textAlign: 'left',
@@ -85,9 +85,9 @@ const About = ({
               <div
                 className="mission"
                 style={{
-                  fontSize: 19 + fontSizeCorrection,
+                  fontSize: 23 + fontSizeCorrection,
                   lineHeight: 16 / 13,
-                  width: deviceSize === 1 ? 400 : '95%',
+                  width: deviceSize === 1 ? 450 : '95%',
                 }}
               >
                 «Производить безопасный, качественный и доступный для каждой
@@ -100,7 +100,7 @@ const About = ({
           <h2
             style={{
               textAlign: deviceSize >= 2 ? 'center' : 'left',
-              fontSize: (deviceSize >= 2 ? 56 : 20) + fontSizeCorrection,
+              fontSize: (deviceSize >= 2 ? 48 : 28) + fontSizeCorrection,
               fontWeight: 500,
               color: '#000324',
               // marginTop: 29,
@@ -123,7 +123,7 @@ const About = ({
                 position: 'relative',
                 marginTop: 28,
                 marginBottom: 25,
-                fontSize: (deviceSize >= 2 ? 64 : 20) + fontSizeCorrection,
+                fontSize: 28 + fontSizeCorrection,
                 fontWeight: 500,
                 color: '#000000',
                 textAlign: 'left',
@@ -175,7 +175,7 @@ const About = ({
             <h2
               style={{
                 position: 'relative',
-                fontSize: 56 + fontSizeCorrection,
+                fontSize: 48 + fontSizeCorrection,
                 fontWeight: 500,
                 color: '#000324',
                 textAlign: 'center',
@@ -211,14 +211,15 @@ const About = ({
                   // position: 'relative',
                   minWidth: 450,
                   minHeight: 300,
-                  width: 500,
+                  width: 460,
+                  // height: 380,
                   // width: 550,
                 }}
               >
                 <div
                   className="mission"
                   style={{
-                    fontSize: deviceSize === 2 ? 34 : 50 + fontSizeCorrection,
+                    fontSize: (deviceSize <= 2 ? 40 : 46) + fontSizeCorrection,
                   }}
                 >
                   «Производить безопасный, качественный и доступный для каждой
@@ -230,7 +231,7 @@ const About = ({
               style={{
                 position: 'relative',
                 marginTop: 20,
-                fontSize: 42 + fontSizeCorrection,
+                fontSize: (deviceSize >= 2 ? 40 : 26) + fontSizeCorrection,
                 fontWeight: 500,
                 color: '#000000',
                 textAlign: 'center',

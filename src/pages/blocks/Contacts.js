@@ -313,7 +313,7 @@ const Contacts = ({
           style={{
             textAlign: 'center',
             width: '100%',
-            fontSize: (deviceSize >= 2 ? 56 : 20) + fontSizeCorrection,
+            fontSize: (deviceSize >= 2 ? 48 : 26) + fontSizeCorrection,
             fontWeight: 500,
             color: '#FFEE17',
             textTransform: 'uppercase',

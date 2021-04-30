@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-scroll'
 import ReactInterval from 'react-interval'
 
@@ -317,7 +317,7 @@ const Title = ({
                 paddingBottom: 10,
               }}
             >
-              <a href="#">
+              <a href="http://lubprod.ru">
                 <img
                   className="object-fill mx-1"
                   style={{
@@ -367,7 +367,9 @@ const Title = ({
                   mixBlendMode: 'normal',
                 }}
               >
-                Продукты питания собственного производства
+                Продукты питания
+                <br />
+                собственного производства
               </h1>
             </div>
             <div className="flex flex-col w-full items-center">
@@ -393,7 +395,7 @@ const Title = ({
             }}
           >
             <div>
-              <a href="#">
+              <a href="http://lubprod.ru">
                 <img
                   className="object-fill mx-1"
                   style={{
@@ -411,12 +413,11 @@ const Title = ({
                 className="w-full flex flex-row"
                 style={{ paddingLeft: 7, paddingTop: 17, flex: 1 }}
               >
-                <div style={{ flex: 1 }}>
+                <div className="flex" style={{ flex: 1 }}>
                   <h1
                     style={{
-                      width: 400,
-                      // height: 132,
-                      fontSize: 40 + fontSizeCorrection,
+                      flex: 1,
+                      fontSize: 34 + fontSizeCorrection,
                       fontStyle: 'normal',
                       fontWeight: 'bold',
                       lineHeight: 47 / 40,
@@ -425,10 +426,12 @@ const Title = ({
                       mixBlendMode: 'normal',
                     }}
                   >
-                    Продукты питания собственного производства
+                    Продукты питания
+                    <br />
+                    собственного производства
                   </h1>
                 </div>
-                <div style={{ width: 350, textAlign: 'right' }}>
+                <div style={{ textAlign: 'right' }}>
                   <div
                     style={{
                       fontWeight: 900,
@@ -473,7 +476,7 @@ const Title = ({
                   imgH={38 * imgSizeCorrection}
                   imgW={44 * imgSizeCorrection}
                   fontWeight={700}
-                  fontSize={36 + fontSizeCorrection}
+                  fontSize={34 + fontSizeCorrection}
                   name="скачать каталог"
                 />
               </div>
